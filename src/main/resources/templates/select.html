@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<h1 th:text="${title}"></h1>
+
+<table>
+    <tr th:each="colorsRow : ${colors}">
+        <td th:each="color : ${colorsRow}"
+            width="100" height="100"
+            th:attr="bgcolor=${color}"
+            th:data-color-href="'/select/' + ${color}"
+            th:onclick="location.href=this.getAttribute('data-color-href')">
+
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
