@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+
+<div style="max-width: 800px; margin: 50px auto">
+    <canvas id="myChart" ></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script th:inline="javascript">
+
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+        labels: [[${labels}]],
+        datasets: [{
+        label: '# of Votes',
+        data: [[${values}]],
+        backgroundColor: [[${backgrounds}]],
+
+        borderWidth: 3
+    }]
+    },
+        options: {
+        scales: {
+        y: {
+        beginAtZero: true
+    }
+    }
+    }
+    });
+
+</script>
+
+
+
+</body>
+</html>
